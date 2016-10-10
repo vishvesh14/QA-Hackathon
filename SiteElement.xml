@@ -1,0 +1,9 @@
+<?xml Version=1.0"?>
+<sitemodel>
+<pages>
+<page name="CreateAccount">
+	<element key="CreateEmailAddress">
+		<searchby>id</searchby>
+		<value>email_create</value>
+	</element>
+</page>
