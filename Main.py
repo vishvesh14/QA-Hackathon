@@ -1,22 +1,28 @@
 __author__ = 'Vishvesh Savant'
 
-import time
+import pytest
 from selenium import webdriver
-from ElementLocators import CreateAccountElements
+from Registration import CreateAccountElements
+from Login import LoginModule
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
-driver = webdriver.Firefox()
-#obj1 = CreateAccountElements()
-def First():
-    #driver = webdriver.Firefox()
+
+def User_Registration(self,driver):
+    driver = webdriver.Firefox()
     driver.get("http://automationpractice.com/index.php")
     assert "My Store" in driver.title
     driver.find_element_by_xpath(".//*[@id='header']/div[2]/div/div/nav/div[1]/a").click()
     driver.maximize_window()
-    obj1 = CreateAccountElements()
-    obj1.Elements(driver)
-    obj1.ClickCreateAccountButton(driver)
+    RegistrationObject = CreateAccountElements()
+    RegistrationObject.Elements(driver)
+    RegistrationObject.ClickCreateAccountButton(driver)
 
-First()
+'''def User_Login(driver):
+    LoginObject = LoginModule()
+    LoginObject.login_elements(driver)'''
 
+
+@pytest.mark.reg
+def test_Registration():
+    User_Registration()
