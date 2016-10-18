@@ -6,6 +6,9 @@ from selenium import webdriver
 import csv
 
 class CreateAccountElements(object):
+    self = ""
+    def __init__(self):
+        print(self)
 
     def Elements(self,driver):
         self.Email_Address= driver.find_element_by_xpath(".//*[@id='email_create']")
