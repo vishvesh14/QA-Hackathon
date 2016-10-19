@@ -4,17 +4,23 @@ import pytest
 from selenium import webdriver
 from module.Registration import CreateAccountElements
 from module.Login import LoginModule
-from locators.locators import MainPageLocators
+from element_locators.locators import PageLocators
+#import element_events.events import
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
 driver = webdriver.Firefox()
 def User_Registration():
+
     driver.get("http://automationpractice.com/index.php")
     assert "My Store" in driver.title
-    elem=driver.find_element(*MainPageLocators.Sign_In)
+
+    elem=PageLocators()
+    elem.main_page_locators()
+    elem=driver.find_element(*elem.sign_in)
     elem.click()
     driver.maximize_window()
+
     '''RegistrationObject = CreateAccountElements()
     RegistrationObject.Elements(driver)
     RegistrationObject.ClickCreateAccountButton(driver)'''
