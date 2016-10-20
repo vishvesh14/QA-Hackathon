@@ -3,18 +3,20 @@ __author__ = 'Vishvesh Savant'
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
+from element_locators.locators import PageLocators
 import csv
-
+'''
 class CreateAccountElements(object):
 
     def Elements(self,driver):
-        self.Email_Address= driver.find_element_by_xpath(".//*[@id='email_create']")
+        email_address_object= PageLocators
+        email_address_object.registration_page_locators()
+        email_address_object = driver.find_element_(*email_address_object.email_address)
         self.Email_Address.clear()
 
-        #using Content Manager to open CSV
-        with open("C:/Users/Vishvesh Savant/Desktop/QA-Hackathon1/module/Registration_Details.csv") as csvfile:                    #Calling CSV file with name "Registration_Details"
+        with open("C:/Users/Vishvesh Savant/Desktop/QA-Hackathon1/module/Registration_Details.csv") as csvfile:
             self.filecontent = csv.reader(csvfile,delimiter=',')
-            self.emailaddress =[]                                       #Creating empty list to store value after append in for loop
+            self.emailaddress =[]
 
             for row in self.filecontent:
                 user_email=row[0]
@@ -24,4 +26,7 @@ class CreateAccountElements(object):
         print(self.emailaddress)
 
     def ClickCreateAccountButton(self,driver):
-        driver.find_element_by_xpath(".//*[@id='SubmitCreate']").click()
+        create_account_object=PageLocators
+        create_account_object.registration_page_locators()
+        create_account_object = driver.find_element(*create_account_object.create_account_button)
+        create_account_object.click()'''
