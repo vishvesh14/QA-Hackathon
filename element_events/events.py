@@ -4,12 +4,13 @@ from selenium import webdriver
 from element_locators.locators import PageLocators
 import csv
 
+
+
 class Event_Functions(object):
 
     def initial(self, driver):
         elem=PageLocators()
-        signin = elem.main_page_locators()
-        elem=driver.find_element(signin.sign_in)
+        elem=driver.find_element(elem.sign_in)
         elem.click()
         driver.maximize_window()
 
