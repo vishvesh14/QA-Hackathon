@@ -15,11 +15,13 @@ class PageLocators(object):
         elem = driver.find_element(*elem.sign_in)
         elem.click()
 
+#Login Functionality
 class Login(object):
     sign_in1 = (By.CLASS_NAME,'login')
     login_email = (By.ID,'email')
     login_password = (By.ID,'passwd')
     sign_in_button = (By.ID,'SubmitLogin')
+    sign_out_button =(By.CLASS_NAME,'logout')
 
     def login_locators(self,driver):
         #Sign In Link on Homepage
@@ -31,30 +33,39 @@ class Login(object):
         elem_sign_in1 = Login()
         elem_sign_in1 = driver.find_element(*elem_sign_in1.login_email)
         elem_sign_in1.clear()
-        #elem_sign_in1.send_keys("Test@gmail.com")
+        print("test 1")
 
         #Password to login
         elem_sign_in2 = Login()
         elem_sign_in2 = driver.find_element(*elem_sign_in2.login_password)
         elem_sign_in2.clear()
-        #elem_sign_in2.send_keys("test")
+        print("test 2")
 
-        with open("C:/Users/Vishvesh Savant/Desktop/QA-Hackathon1/element_events/Login_Details.csv") as csvfile
+
+        with open("C:/Users/Vishvesh Savant/Desktop/QA-Hackathon1/element_events/Login_Details.csv") as csvfile:
             login_file_content = csv.reader(csvfile,delimiter=",")
             login_email_address = []
             login_email_password = []
             for row in login_file_content:
-                user_email=row[0]
+                user_email = row[0]
                 user_password = row[1]
             login_email_address.append(user_email)
             login_email_password.append(user_password)
+            print("test 3")
             elem_sign_in1.send_keys(login_email_address)
             elem_sign_in2.send_keys(login_email_password)
+            print("test 4")
 
-        #Click on Sign In Button
         elem_sign_in3 = Login()
         elem_sign_in3 = driver.find_element(*elem_sign_in3.sign_in_button)
         elem_sign_in3.click()
+        print("test 5")
+
+        #Click on Sign Out Button
+        elem_sign_in4 = Login()
+        elem_sign_in4 = driver.find_element(*elem_sign_in4.sign_out_button)
+        elem_sign_in4.click()
+        print("test 6")
 
 class registration_page_locators(object):
     email_address=(By.ID,'email_create')

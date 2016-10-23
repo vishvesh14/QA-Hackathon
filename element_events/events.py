@@ -2,11 +2,12 @@ __author__ = 'Vishvesh Savant'
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 from element_locators.locators import PageLocators,Login
 import csv
 
 page_locator_object= PageLocators()
-login_object= Login()
+login_object = Login()
 
 class EventFunctions(object):
 
@@ -14,12 +15,9 @@ class EventFunctions(object):
         page_locator_object.main_page_locators(driver)
         x = driver.find_element_by_xpath(".//*[@id='email_create']").click()
         x.clear()
-        print("test")
 
     def valid_login(self,driver):
         login_object.login_locators(driver)
-        print("login test")
-
 
 '''
    def registation(self, driver):
