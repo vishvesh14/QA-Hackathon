@@ -3,11 +3,13 @@ __author__ = 'Vishvesh Savant'
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
-from element_locators.locators import PageLocators,Login
+from selenium.webdriver.common.by import By
+from element_locators.locators import PageLocators,Login,Search
 import csv
 
 page_locator_object= PageLocators()
 login_object = Login()
+search_object = Search()
 
 class EventFunctions(object):
 
@@ -18,6 +20,18 @@ class EventFunctions(object):
 
     def valid_login(self,driver):
         login_object.login_locators(driver)
+
+    def invalid_search(self,driver):
+        search_object.search_locators(driver)
+        print("test 1")
+        x = "Please enter a search keyword"
+        print("test 2")
+
+        search_object.search_button_locators(driver)
+        actual_search_message = driver.find_element_by_xpath(".//*[@id='center_column']/p").text
+        print("test 3")
+        assert("Please enter a search keyword" in actual_search_message)
+        print("test pass")
 
 '''
    def registation(self, driver):

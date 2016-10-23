@@ -26,18 +26,18 @@ class Login(object):
     def login_locators(self,driver):
         #Sign In Link on Homepage
         elem_sign_in = Login()
-        elem_sign_in = driver.find_element(*elem_sign_in.sign_in1)
+        elem_sign_in = driver.find_element(elem_sign_in.sign_in1)
         elem_sign_in.click()
 
         #Email Address to Login
         elem_sign_in1 = Login()
-        elem_sign_in1 = driver.find_element(*elem_sign_in1.login_email)
+        elem_sign_in1 = driver.find_element(elem_sign_in1.login_email)
         elem_sign_in1.clear()
         print("test 1")
 
         #Password to login
         elem_sign_in2 = Login()
-        elem_sign_in2 = driver.find_element(*elem_sign_in2.login_password)
+        elem_sign_in2 = driver.find_element(elem_sign_in2.login_password)
         elem_sign_in2.clear()
         print("test 2")
 
@@ -57,15 +57,36 @@ class Login(object):
             print("test 4")
 
         elem_sign_in3 = Login()
-        elem_sign_in3 = driver.find_element(*elem_sign_in3.sign_in_button)
+        elem_sign_in3 = driver.find_element(elem_sign_in3.sign_in_button)
         elem_sign_in3.click()
         print("test 5")
-
+'''
         #Click on Sign Out Button
         elem_sign_in4 = Login()
-        elem_sign_in4 = driver.find_element(*elem_sign_in4.sign_out_button)
+        elem_sign_in4 = driver.find_element(elem_sign_in4.sign_out_button)
         elem_sign_in4.click()
-        print("test 6")
+        print("test 6")'''
+
+
+class Search(object):
+    search_field = (By.ID,'search_query_top')
+    search_button = (By.NAME,'submit_search')
+    #actual_search_message = (By.XPATH,".//*[@id='center_column']/p").text
+
+    def search_locators(self,driver):
+        #With Blank Search
+        elem_search_object = Search()
+        elem_search_object = driver.find_element(*elem_search_object.search_field)
+        elem_search_object.click()
+
+    def search_button_locators(self,driver):
+        #Click Search Button
+        elem_search_object1 = Search()
+        elem_search_object1 = driver.find_element(*elem_search_object1.search_button)
+        elem_search_object1.click()
+
+
+
 
 class registration_page_locators(object):
     email_address=(By.ID,'email_create')

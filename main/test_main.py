@@ -23,7 +23,8 @@ driver.maximize_window()
 
 #@pytest.mark.login
 def test_user_login(driver):
-    event_object.valid_login(driver)
+    #event_object.valid_login(driver)
+    event_object.invalid_search(driver)
 
 test_user_login(driver)
 
