@@ -1,20 +1,28 @@
 __author__ = 'Vishvesh Savant'
 
 from selenium import webdriver
-from element_locators.locators import PageLocators
+from selenium.webdriver.support.ui import Select
+from element_locators.locators import PageLocators,Login
 import csv
 
+page_locator_object= PageLocators()
+login_object= Login()
+
+class EventFunctions(object):
+
+    def initial(self,driver):
+        page_locator_object.main_page_locators(driver)
+        x = driver.find_element_by_xpath(".//*[@id='email_create']").click()
+        x.clear()
+        print("test")
+
+    def valid_login(self,driver):
+        login_object.login_locators(driver)
+        print("login test")
 
 
-class Event_Functions(object):
-
-    def initial(self, driver):
-        elem=PageLocators()
-        elem=driver.find_element(elem.sign_in)
-        elem.click()
-        driver.maximize_window()
-
-    def registation(self, driver):
+'''
+   def registation(self, driver):
         email_address_object= PageLocators()
         a = email_address_object.registration_page_locators()
         email_address_object = driver.find_element_(*a.email_address)
@@ -32,4 +40,4 @@ class Event_Functions(object):
         self.create_account_object=PageLocators
         self.create_account_object.registration_page_locators()
         self.create_account_object=driver.find_element(*self.create_account_object.create_account_button)
-        self.create_account_object.click()
+        self.create_account_object.click()'''
